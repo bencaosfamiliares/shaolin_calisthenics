@@ -297,29 +297,19 @@ const getExerciseImage = (exerciseName: string, day?: number, exerciseIndex?: nu
     return martialArts9New;
   }
   
-  // For days 10-13, use a systematic approach to ensure variety
-  if (day && day >= 10 && day <= 13) {
-    const allMartialArtsImages = [
-      martialArts1, martialArts2, martialArts3, martialArts4, martialArts5, martialArts6, martialArts7,
-      martialArts8, martialArts9New, martialArts10, martialArts11, martialArts12, martialArts13
+  // For days 10-13, use specific mapping to ensure all exercises have images
+  if (day && day >= 10 && day <= 13 && exerciseIndex !== undefined) {
+    const allImages = [
+      martialArts1, martialArts2, martialArts3, martialArts4, martialArts5, 
+      martialArts6, martialArts7, martialArts8, martialArts9New, 
+      martialArts10, martialArts11, martialArts12, martialArts13,
+      pushupImg, pullupImg, squatImg
     ];
-    const allExerciseImages = [pushupImg, pullupImg, squatImg];
     
-    // Create a unique image selection for each day and exercise
-    const dayOffset = (day - 10) * 5; // Each day gets a different starting point
-    const exerciseOffset = exerciseIndex || 0;
-    const totalOffset = dayOffset + exerciseOffset;
-    
-    // Alternate between martial arts and exercise images
-    if (totalOffset % 2 === 0) {
-      // Use martial arts images
-      const imageIndex = Math.floor(totalOffset / 2) % allMartialArtsImages.length;
-      return allMartialArtsImages[imageIndex];
-    } else {
-      // Use exercise images
-      const imageIndex = Math.floor(totalOffset / 2) % allExerciseImages.length;
-      return allExerciseImages[imageIndex];
-    }
+    // Create a deterministic mapping for each day and exercise
+    const dayExerciseKey = (day - 10) * 5 + exerciseIndex;
+    const imageIndex = dayExerciseKey % allImages.length;
+    return allImages[imageIndex];
   }
   
   // Default logic for other days
