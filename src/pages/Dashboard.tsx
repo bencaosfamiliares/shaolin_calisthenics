@@ -299,17 +299,39 @@ const getExerciseImage = (exerciseName: string, day?: number, exerciseIndex?: nu
   
   // For days 10-13, use specific mapping to ensure all exercises have images
   if (day && day >= 10 && day <= 13 && exerciseIndex !== undefined) {
-    const allImages = [
-      martialArts1, martialArts2, martialArts3, martialArts4, martialArts5, 
-      martialArts6, martialArts7, martialArts8, martialArts9New, 
-      martialArts10, martialArts11, martialArts12, martialArts13,
-      pushupImg, pullupImg, squatImg
-    ];
+    // Create a comprehensive mapping for each day and exercise combination
+    const exerciseImageMap = {
+      // Day 10 (5 exercises)
+      '10-0': martialArts1,
+      '10-1': pushupImg,
+      '10-2': martialArts2,
+      '10-3': pullupImg,
+      '10-4': martialArts3,
+      
+      // Day 11 (5 exercises)
+      '11-0': squatImg,
+      '11-1': martialArts4,
+      '11-2': pushupImg,
+      '11-3': martialArts5,
+      '11-4': pullupImg,
+      
+      // Day 12 (5 exercises)
+      '12-0': martialArts6,
+      '12-1': squatImg,
+      '12-2': martialArts7,
+      '12-3': pushupImg,
+      '12-4': martialArts8,
+      
+      // Day 13 (5 exercises)
+      '13-0': martialArts9New,
+      '13-1': pullupImg,
+      '13-2': martialArts10,
+      '13-3': squatImg,
+      '13-4': martialArts11
+    };
     
-    // Create a deterministic mapping for each day and exercise
-    const dayExerciseKey = (day - 10) * 5 + exerciseIndex;
-    const imageIndex = dayExerciseKey % allImages.length;
-    return allImages[imageIndex];
+    const key = `${day}-${exerciseIndex}`;
+    return exerciseImageMap[key as keyof typeof exerciseImageMap] || martialArts12;
   }
   
   // Default logic for other days
