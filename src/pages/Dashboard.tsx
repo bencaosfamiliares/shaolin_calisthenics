@@ -24,6 +24,16 @@ import martialArts10 from '@/assets/martial-arts-10.jpg';
 import martialArts11 from '@/assets/martial-arts-11.jpg';
 import martialArts12 from '@/assets/martial-arts-12.jpg';
 import martialArts13 from '@/assets/martial-arts-13.jpg';
+// Novas imagens específicas
+import martialArts01 from '@/assets/martial-arts-01.jpg';
+import martialArts02 from '@/assets/martial-arts-02.jpg';
+import martialArts03 from '@/assets/martial-arts-03.jpg';
+import martialArts04 from '@/assets/martial-arts-04.jpg';
+import martialArts05 from '@/assets/martial-arts-05.jpg';
+import martialArts06 from '@/assets/martial-arts-06.jpg';
+import martialArts07 from '@/assets/martial-arts-07.jpg';
+import martialArts08 from '@/assets/martial-arts-08.jpg';
+import martialArts09Specific from '@/assets/martial-arts-09-specific.jpg';
 
 const workoutSchedule = [
   {
@@ -299,35 +309,35 @@ const getExerciseImage = (exerciseName: string, day?: number, exerciseIndex?: nu
   
   // For days 10-13, use specific mapping to ensure all exercises have images
   if (day && day >= 10 && day <= 13 && exerciseIndex !== undefined) {
-    // Create a comprehensive mapping for each day and exercise combination
+    // Mapeamento específico conforme solicitado pelo usuário
     const exerciseImageMap = {
       // Day 10 (5 exercises)
-      '10-0': martialArts1,
-      '10-1': pushupImg,
-      '10-2': martialArts2,
-      '10-3': pullupImg,
-      '10-4': martialArts3,
+      '10-0': martialArts1, // Exercício 1 - imagem padrão
+      '10-1': martialArts01, // Exercício 2 - 01.jpeg
+      '10-2': martialArts2, // Exercício 3 - imagem padrão
+      '10-3': martialArts02, // Exercício 4 - 02.jpeg
+      '10-4': martialArts3, // Exercício 5 - imagem padrão
       
       // Day 11 (5 exercises)
-      '11-0': squatImg,
-      '11-1': martialArts4,
-      '11-2': pushupImg,
-      '11-3': martialArts5,
-      '11-4': pullupImg,
+      '11-0': martialArts03, // Exercício 1 - 03.jpeg
+      '11-1': martialArts4, // Exercício 2 - imagem padrão
+      '11-2': martialArts04, // Exercício 3 - 04.jpeg
+      '11-3': martialArts5, // Exercício 4 - imagem padrão
+      '11-4': martialArts05, // Exercício 5 - 05.jpeg
       
       // Day 12 (5 exercises)
-      '12-0': martialArts6,
-      '12-1': squatImg,
-      '12-2': martialArts7,
-      '12-3': pushupImg,
-      '12-4': martialArts8,
+      '12-0': martialArts6, // Exercício 1 - imagem padrão
+      '12-1': martialArts06, // Exercício 2 - 06.jpeg
+      '12-2': martialArts7, // Exercício 3 - imagem padrão
+      '12-3': martialArts07, // Exercício 4 - 07.jpeg
+      '12-4': martialArts8, // Exercício 5 - imagem padrão
       
       // Day 13 (5 exercises)
-      '13-0': martialArts9New,
-      '13-1': pullupImg,
-      '13-2': martialArts10,
-      '13-3': squatImg,
-      '13-4': martialArts11
+      '13-0': martialArts9New, // Exercício 1 - imagem padrão
+      '13-1': martialArts08, // Exercício 2 - 08.jpeg
+      '13-2': martialArts10, // Exercício 3 - imagem padrão
+      '13-3': martialArts09Specific, // Exercício 4 - 09.jpeg
+      '13-4': martialArts11 // Exercício 5 - imagem padrão
     };
     
     const key = `${day}-${exerciseIndex}`;
