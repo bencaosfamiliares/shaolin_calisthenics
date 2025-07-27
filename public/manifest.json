@@ -1,0 +1,25 @@
+{
+  "name": "Calistenia 28 Days - Challenge",
+  "short_name": "Calistenia28",
+  "description": "28-day calisthenics challenge app - Wherever You Are, Health Is Number One",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#192126",
+  "theme_color": "#BBF246",
+  "icons": [
+    {
+      "src": "/placeholder.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/placeholder.svg", 
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "fitness", "sports"],
+  "orientation": "portrait-primary"
+}
