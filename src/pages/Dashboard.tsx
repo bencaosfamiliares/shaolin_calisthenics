@@ -297,7 +297,7 @@ const getExerciseImage = (exerciseName: string, day?: number, exerciseIndex?: nu
     return martialArts9New;
   }
   
-  // For days 10-13, intercalate using ALL 13 martial arts images with exercise images
+  // For days 10-13, use a systematic approach to ensure variety
   if (day && day >= 10 && day <= 13) {
     const allMartialArtsImages = [
       martialArts1, martialArts2, martialArts3, martialArts4, martialArts5, martialArts6, martialArts7,
@@ -305,24 +305,21 @@ const getExerciseImage = (exerciseName: string, day?: number, exerciseIndex?: nu
     ];
     const allExerciseImages = [pushupImg, pullupImg, squatImg];
     
-    // Create a combined array that intercalates all martial arts images with exercise images
-    const combinedImages = [];
-    const maxLength = Math.max(allMartialArtsImages.length * 2, allExerciseImages.length * 4);
+    // Create a unique image selection for each day and exercise
+    const dayOffset = (day - 10) * 5; // Each day gets a different starting point
+    const exerciseOffset = exerciseIndex || 0;
+    const totalOffset = dayOffset + exerciseOffset;
     
-    for (let i = 0; i < maxLength; i++) {
-      if (i % 3 === 0 && allMartialArtsImages[Math.floor(i / 3)]) {
-        // Every 3rd position, use a martial arts image
-        combinedImages.push(allMartialArtsImages[Math.floor(i / 3)]);
-      } else {
-        // Other positions, use exercise images
-        const exerciseIndex = Math.floor(i / 3) % allExerciseImages.length;
-        combinedImages.push(allExerciseImages[exerciseIndex]);
-      }
+    // Alternate between martial arts and exercise images
+    if (totalOffset % 2 === 0) {
+      // Use martial arts images
+      const imageIndex = Math.floor(totalOffset / 2) % allMartialArtsImages.length;
+      return allMartialArtsImages[imageIndex];
+    } else {
+      // Use exercise images
+      const imageIndex = Math.floor(totalOffset / 2) % allExerciseImages.length;
+      return allExerciseImages[imageIndex];
     }
-    
-    // Use exerciseIndex if provided to get varied images for multiple exercises per day
-    const imageIndex = exerciseIndex !== undefined ? exerciseIndex % combinedImages.length : 0;
-    return combinedImages[imageIndex];
   }
   
   // Default logic for other days
