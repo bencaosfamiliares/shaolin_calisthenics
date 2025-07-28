@@ -79,14 +79,14 @@ export default function Signup() {
               variant="default"
               onClick={handleSignup}
             >
-              Sign Up
+              Criar ck ta
             </Button>
 
             <div className="text-center">
               <p className="text-sm text-muted-foreground">
                 Já tem conta?{' '}
                 <Link to="/login" className="text-primary hover:underline font-medium">
-                  Sign In
+                  Entrar
                 </Link>
               </p>
             </div>

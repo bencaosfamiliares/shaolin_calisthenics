@@ -31,7 +31,7 @@ export default function Onboarding() {
             onClick={() => navigate('/login')}
             className="mt-8"
           >
-            Get Started
+            Entrar
           </Button>
         </div>
       </div>
