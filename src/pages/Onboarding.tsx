@@ -20,12 +20,9 @@ export default function Onboarding() {
         <div className="text-center text-white space-y-6">
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-              Wherever You Are,{' '}
-              <span className="text-primary">Health Is Number One</span>
+            Fique em forma em até 28 Dias fazendo o {' '}
+              <span className="text-primary">desafio da Calistenia sem sair de casa!</span>
             </h1>
-            <p className="text-lg text-white/80 max-w-md mx-auto">
-              Comece sua jornada de 28 dias de calistenia e transforme seu corpo com exercícios funcionais
-            </p>
           </div>
 
           <Button 
